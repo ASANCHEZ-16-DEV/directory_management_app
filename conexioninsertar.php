@@ -2,10 +2,10 @@
 
 //String de conexion a la base de datos de directorio
     
-$usuario="usuario";
-$pass="passwd";
+$usuario="root";
+$pass="";
 $server="localhost";
-$db="telefonosAyuntamiento";
+$db="directorio";
 
 // Creamos la conexión y la almacenamos en la variable $con
 // Create connection

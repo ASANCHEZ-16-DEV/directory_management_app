@@ -13,7 +13,7 @@ include ("menu.php")
 	
 
       
-    <title>Directorio del Ayuntamiento de Santa Lucia</title>
+    <title>Directorio del Ateneo Santa Lucía de Tirajana </title>
     
 </head>
 <body>
@@ -48,7 +48,7 @@ include ("menu.php")
    
       <label class="w3-text-teal fa fa-sort-alpha-asc"><b> Ordenar por:</b></label> 
       <input class="w3-radio" type="radio" name="ord" value="usuarios.nombre" checked> Nombre
-      <input class="w3-radio" type="radio" name="ord" value="departamentos.departamento"> Departamento
+      <input class="w3-radio" type="radio" name="ord" value="departamentos.departamento"> Area
       <input class="w3-radio" type="radio" name="ord" value="usuarios.extension"> Extensión
           
 		  <div class="w3-row w3-section">

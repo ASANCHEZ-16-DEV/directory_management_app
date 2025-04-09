@@ -2,6 +2,7 @@
 require_once ("conexion.php");    
 
 // *REQUIERE LA CONEXIÓN DE LA BASE DE DATOS
+// TODO: Continuar con la migracion de campos de la base de datos anterior
 
 if(isset($_POST['filtro']))
 {
@@ -25,7 +26,7 @@ include ("menu.php")
 <html>
     
 <head>
-    <title>Directorio telefónico y correos Ateneo Santa Lucía </title>
+    <title>Directorio del Ateneo Santa Lucía de Tirajana </title>
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="CSS/w3.css"> 
 	<link rel="stylesheet" href="CSS/font-awesome/css/font-awesome.min.css">
@@ -36,12 +37,12 @@ include ("menu.php")
         <h2 class="w3-center">Filtrar</h2>
        <label class="w3-text-teal w3-xlarge fa fa-users"><b> Area</b></label>
         <select name="dep"  class="w3-select w3-border">
-			<option value="" disabled selected>Selecciona un departamento</option>
+			<option value="" disabled selected>Selecciona un Area</option>
             <?php
-                $consulta="select departamento from departamentos order by departamento asc;";
+                $consulta="select nombre from area order by nombre asc;";
                 $result=$conn->query($consulta);
                 while($lineas = $result->fetch_assoc()){
-                    echo "<option value='".$lineas["departamento"]."'>".$lineas["departamento"]."</option>";
+                    echo "<option value='".$lineas["nombre"]."'>".$lineas["nombre"]."</option>";
                 }
             ?>
         </select>
@@ -103,10 +104,10 @@ include ("menu.php")
     echo  "<tr class='w3-light-grey w3-hover-red'>";
     echo "<td width=25% align='center' valign='top'>" . $row["nombre"] . "</td>";
     echo "<td width=5% align='center' valign='top'>" . $row["extension"] . "</td>";
-    echo "<td width=25% align='center' valign='top'>" . $row["departamento"] . "</td>";
+    echo "<td width=25% align='center' valign='top'>" . $row["nombre"] . "</td>";
     echo "<td width=15% align='center' valign='top'>" . $row["email"] . "</td>";
     echo "<td width=15% align='center' valign='top'>" . $row["telefono_movil"] . "</td>";
-    echo "<td width=15% align='center' valign='top'>" . $row["externos"] . "</td>";
+    echo "<td width=15% align='center' valign='top'>" . $row["telefono_fijo"] . "</td>";
     echo "</tr>";
   }
 ?>
