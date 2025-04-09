@@ -1,0 +1,156 @@
+<?php
+require_once ("conexion.php");    
+
+if(isset($_POST['filtro']))
+{
+    $dep = $_POST["dep"];
+    $ord=$_POST["ord"];
+    // search in all table columns
+    // using concat mysql function
+    $sql="select usuarios.nombre,usuarios.extension,usuarios.externos,departamentos.departamento from (usuarios inner join departamentos on usuarios.id_departamento=departamentos.id_departamento) where departamentos.departamento='$dep' order by $ord;";
+    
+    
+}
+ else {
+     //SQL para mostrar la tabla usuarios
+
+    $sql="select usuarios.nombre,usuarios.extension,usuarios.externos,departamentos.departamento from (usuarios inner join departamentos on usuarios.id_departamento=departamentos.id_departamento) order by departamentos.departamento;";
+   
+}
+
+
+?>
+ <?php
+include ("menu.php")
+?>
+<!doctype html>
+<html>
+    
+<head>
+	
+      
+    <title>Directorio del Ayuntamiento de Santa Lucia</title>
+    <link rel="shortcut icon" href="imagenes/favicon.ico" />
+    
+    <meta http-equiv="Content-type" content="text/html; charset="UTF-8">
+    <link rel="stylesheet" href="CSS/w3.css"> 
+	<link rel="stylesheet" href="CSS/font-awesome/css/font-awesome.min.css">
+      
+  </head>
+<body>
+
+    
+    <form name="filtrar" action="index.php" method="post" align="center" class="w3-container">
+        <fieldset>
+            <legend>Filtar por:</legend>
+       <label class="w3-text-teal"><b>Departamento</b></label>
+        <select name="dep"  class="w3-select w3-border">
+            <?php
+                $consulta="select departamento from departamentos order by departamento asc;";
+                $result=$conn->query($consulta);
+                  while($lineas = $result->fetch_assoc()){
+                    echo "<option value='".$lineas["departamento"]."'>".$lineas["departamento"]."</option>";
+                     }
+            ?>
+        </select>
+            <br><br>
+      
+          
+      <input class="w3-radio" type="radio" name="ord" value="usuarios.nombre" checked> Nombre
+      <input class="w3-radio" type="radio" name="ord" value="usuarios.extension"> Extensión<br><br>
+          
+       <input class="w3-btn w3-teal fa fa-user" type="submit" name="filtro" value="Filtrar" title="Filtrar">
+        </fieldset>
+        
+    </form>
+    <br>  
+  
+ 
+    <!--Mostar todos los datos-->
+    <!--Mostar todos los datos-->
+    <!--Mostar todos los datos-->
+	
+	
+<div>  
+<table align="center" width="70%" class="w3-round-large w3-teal">
+	<tr>
+		<td align="center" width="50%"><h2>Números Internos</h2></td>   
+	</tr>    
+</table>
+</div> 
+
+<table align="center" width="80%">
+	<tr class="w3-teal">
+		<td width="35%" align="center" valign="top">
+			<h3>Nombre</h3>
+		</td>
+		
+		<td width="5%" align="center" valign="top">
+			<h3>Ext</h3>
+		</td>
+
+		<td width="45%" align="center" valign="top">
+			<h3>Departamento</h3>
+		</td>
+		
+		<td width="15%" align="center" valign="top">
+			<h3>Externo</h3>
+		</td>
+	</tr>
+</table>
+<?php
+         
+                    
+  
+  
+    $result=$conn->query($sql);
+    
+    while($row = $result->fetch_assoc()) {
+       /* echo "Nombre: " . $row["nombre"]. " " . $row["apellidos"]. " " . $row["extension"]. " " . $row["email"]. " " . $row["departamento"]. " " . $row["edificio"]."<br>";*/
+echo "<table align='center' width='80%' class='w3-hoverable'>";
+echo  "<tr class='w3-light-grey w3-hover-red'>";
+echo "<td width=35% align='center' valign='top'>";
+echo $row["nombre"]; 
+echo "</td>";
+echo "<td width=5% align='center' valign='top'>";
+echo $row["extension"];
+echo "</td>";
+echo "<td width=45% align='center' valign='top'>";
+echo $row["departamento"];
+echo "</td>";
+echo "<td width=15% align='center' valign='top'>";
+echo $row["externos"];
+echo "</td>";
+echo "</tr>";
+            
+    }
+
+      
+
+?>
+        
+</table>
+    
+    
+   <!--Tabla de números externos-->
+    <!--Tabla de números externos-->
+    <!--Tabla de números externos-->
+    <!--Tabla de números externos-->
+    
+    
+
+    
+
+
+<?php
+  $conn->close();           
+?>
+        
+</table>
+ 
+  <?php
+include ("footer.html")
+?>   
+  
+</body>
+</html>

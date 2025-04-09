@@ -1,0 +1,21 @@
+﻿<?php
+
+//String de conexion a la base de datos de directorio
+    
+$usuario="root";
+$pass="";
+$server="localhost";
+$db="directorio";
+
+// Creamos la conexión y la almacenamos en la variable $con
+// Create connection
+$conn = new mysqli($server, $usuario, $pass, $db);
+$conn->set_charset('utf8');
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+
+?>

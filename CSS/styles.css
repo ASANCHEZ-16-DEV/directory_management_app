@@ -1,0 +1,71 @@
+h3 {
+    color: blue;
+}
+
+ast {
+    color: red;
+}
+
+  
+  MiTitulo {
+      display: block;
+      background-color: #4D5656;
+      padding: 10px;
+      font-size: 30px;
+      color: #ffffff;
+        
+  }  
+.Correcto {
+      display: block;
+      background-color: #228B22;
+      padding: 10px;
+      font-size: 30px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+.Errort {
+      display: block;
+      background-color: #800000;
+      padding: 10px;
+      font-size: 30px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+MiBarra {
+      display: block;
+      background-color: #000000;
+      padding: 5px;
+      font-size: 10px;
+      color: #ffffff;
+      /*text-align: left;*/
+ }  
+  
+BInicio {
+    display: inline-block;
+    background: #4D5656;
+    padding: 15px; 
+    font-size: 15px;
+    height: 15px;
+    color: #ffffff;
+     
+}
+
+.campos {  
+    /*font-family:verdana,arial;*/     /* tipo de letra */  
+    /*width: 500px;*/                 /* anchura de campos de formulario */  
+    /*font-size:8pt;*/                /* tamaño de la letra*/   
+    color:#ffffff;                 /* color del texto */   
+    border: 2px solid #2E86C1;        /* color del borde puede ser solid ó dotted */   
+    background-color:#4D5656;    /* color del fondo */  
+}
+.botones {  
+    /*font-family:verdana,arial;*/     /* tipo de letra */  
+    /*width: 500px;*/                 /* anchura de campos de formulario */  
+    /*font-size:8pt;*/                /* tamaño de la letra*/   
+    color:#ffffff;                 /* color del texto */   
+    /* border: 2px solid #2E86C1;*/        /* color del borde puede ser solid ó dotted */   
+    background-color:#4D5656;    /* color del fondo */  
+}
+
