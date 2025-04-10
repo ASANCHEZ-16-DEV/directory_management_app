@@ -1,7 +1,6 @@
-
     <!-- //* FRONTEND DE EL BOTON CON LA PAGINA DE BUSCAR-->
 
-<!doctype html>
+    <!doctype html>
  <?php
 include ("menu.php")
 ?>
@@ -18,24 +17,24 @@ include ("menu.php")
 </head>
 <body>
 
-
         <!--Campo de busqueda-->
     <!--Campo de busqueda-->
     <!--Campo de busqueda-->
     <!--Campo de busqueda-->
+
 <form name="mostarbuscar" action="mostarbuscar.php" method="get" class="w3-container w3-card-4 w3-light-grey w3-text-teal w3-margin" style="width:50%">
 <h2 class="w3-center" class="w3-container w3-teal">Buscar</h2>
 <div class="w3-row w3-section">
   <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
     <div class="w3-rest">
   
-    <input class="w3-input w3-animate-input" type="text" name="nombre" placeholder="Nombre" style="width:30%">
+    <input class="w3-input w3-animate-input" type="text" name="nombre_apellidos" placeholder="Nombre" style="width:30%">
 	</div>
 </div>
 <div class="w3-row w3-section">
   <div class="w3-col" style="width:50px"><i class="w3-xlarge fa fa-users"></i></div>
     <div class="w3-rest">
-     <input class="w3-input w3-animate-input" type="text" name="departamento" placeholder="Departamento" style="width:30%">
+     <input class="w3-input w3-animate-input" type="text" name="area" placeholder="Area" style="width:30%">
 	 </div>
 </div>
 <div class="w3-row w3-section">
@@ -47,9 +46,9 @@ include ("menu.php")
 
    
       <label class="w3-text-teal fa fa-sort-alpha-asc"><b> Ordenar por:</b></label> 
-      <input class="w3-radio" type="radio" name="ord" value="usuarios.nombre" checked> Nombre
-      <input class="w3-radio" type="radio" name="ord" value="departamentos.departamento"> Area
-      <input class="w3-radio" type="radio" name="ord" value="usuarios.extension"> Extensión
+      <input class="w3-radio" type="radio" name="ord" value="empleados.nombre_apellidos" checked> Nombre
+      <input class="w3-radio" type="radio" name="ord" value="area.nombre_area"> Area
+      <input class="w3-radio" type="radio" name="ord" value="empleados.extension"> Extensión
           
 		  <div class="w3-row w3-section">
     
@@ -62,4 +61,3 @@ include ("menu.php")
 
 </body>
 </html>
-
