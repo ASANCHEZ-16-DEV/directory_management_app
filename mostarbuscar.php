@@ -1,14 +1,14 @@
-
 <?php
 require_once ("conexion.php");   
 
-$nombre = $_GET["nombre_apellidos"];
-$departamento = $_GET["area"];
-$extension = $_GET["extension"];
-$email = $_GET["email"];
-$movil = $_GET["telefono_movil"];
-$fijo = $_GET["telefono_fijo"];
-$ord = $_GET["ord"];
+// Comprobamos si las variables están definidas
+$nombre = isset($_GET["nombre_apellidos"]) ? $_GET["nombre_apellidos"] : null;
+$departamento = isset($_GET["area"]) ? $_GET["area"] : null;
+$extension = isset($_GET["extension"]) ? $_GET["extension"] : null;
+$email = isset($_GET["email"]) ? $_GET["email"] : null;
+$movil = isset($_GET["telefono_movil"]) ? $_GET["telefono_movil"] : null;
+$fijo = isset($_GET["telefono_fijo"]) ? $_GET["telefono_fijo"] : null;
+$ord = isset($_GET["ord"]) ? $_GET["ord"] : 'empleados.nombre_apellidos'; // Establecer un valor predeterminado para evitar problemas de orden
 
 if (!$nombre && !$departamento && !$extension && !$email && !$movil && !$fijo) {
     echo "<script>alert('Tienes que rellenar al menos un campo para la búsqueda');
@@ -42,8 +42,6 @@ if (!$nombre && !$departamento && !$extension && !$email && !$movil && !$fijo) {
 
     $consulta .= " ORDER BY $ord;";
 }
-
-
 ?>
 
 <!doctype html>
@@ -92,9 +90,9 @@ while($row = $result->fetch_assoc()) {
     echo "<tr class='w3-light-grey w3-hover-red'>";
     echo "<td width=20% align='center' valign='top'>" . $row["nombre_apellidos"] . "</td>";
     echo "<td width=20% align='center' valign='top'>" . $row["nombre_area"] . "</td>";
-    echo "<td width=25% align='center' valign='top'>" . $row["email"] . "</td>";
-    echo "<td width=15% align='center' valign='top'>" . $row["telefono_movil"] . "</td>";
-    echo "<td width=15% align='center' valign='top'>" . $row["telefono_fijo"] . "</td>";
+    echo "<td width=25% align='center' valign='top'>" . (isset($row["email"]) ? $row["email"] : '') . "</td>";  // Verifica si email está definido
+    echo "<td width=15% align='center' valign='top'>" . (isset($row["telefono_movil"]) ? $row["telefono_movil"] : '') . "</td>";  // Verifica si telefono_movil está definido
+    echo "<td width=15% align='center' valign='top'>" . (isset($row["telefono_fijo"]) ? $row["telefono_fijo"] : '') . "</td>";  // Verifica si telefono_fijo está definido
     echo "<td width=30% align='center' valign='top'>" . $row["extension"] . "</td>";
     echo "</tr>";
     echo "</table>";
