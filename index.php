@@ -36,6 +36,8 @@ include ("menu.php")
     <form name="filtrar" action="index.php" method="post" align="center" class="w3-container w3-card-4 w3-light-grey w3-text-teal w3-margin" style="width:50%">
         <h2 class="w3-center">Filtrar</h2>
        <label class="w3-text-teal w3-xlarge fa fa-users"><b> Area</b></label>
+       <br><br>
+
         <select name="dep"  class="w3-select w3-border">
 			<option value="" disabled selected>Selecciona un Area</option>
             <?php
