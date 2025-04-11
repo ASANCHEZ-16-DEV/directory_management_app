@@ -6,66 +6,131 @@ ast {
     color: red;
 }
 
-  
-  MiTitulo {
-      display: block;
-      background-color: #4D5656;
-      padding: 10px;
-      font-size: 30px;
-      color: #ffffff;
-        
-  }  
+MiTitulo {
+    display: block;
+    background-color: #4D5656;
+    padding: 10px;
+    font-size: 30px;
+    color: #ffffff;
+}
+
 .Correcto {
-      display: block;
-      background-color: #228B22;
-      padding: 10px;
-      font-size: 30px;
-      text-align: center;
-      color: #ffffff;
-    }
+    display: block;
+    background-color: #228B22;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+    color: #ffffff;
+}
 
 .Errort {
-      display: block;
-      background-color: #800000;
-      padding: 10px;
-      font-size: 30px;
-      text-align: center;
-      color: #ffffff;
-    }
+    display: block;
+    background-color: #800000;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+    color: #ffffff;
+}
 
 MiBarra {
-      display: block;
-      background-color: #000000;
-      padding: 5px;
-      font-size: 10px;
-      color: #ffffff;
-      /*text-align: left;*/
- }  
-  
+    display: block;
+    background-color: #000000;
+    padding: 5px;
+    font-size: 10px;
+    color: #ffffff;
+}
+
 BInicio {
     display: inline-block;
     background: #4D5656;
-    padding: 15px; 
+    padding: 15px;
     font-size: 15px;
     height: 15px;
     color: #ffffff;
-     
 }
 
-.campos {  
-    /*font-family:verdana,arial;*/     /* tipo de letra */  
-    /*width: 500px;*/                 /* anchura de campos de formulario */  
-    /*font-size:8pt;*/                /* tamaño de la letra*/   
-    color:#ffffff;                 /* color del texto */   
-    border: 2px solid #2E86C1;        /* color del borde puede ser solid ó dotted */   
-    background-color:#4D5656;    /* color del fondo */  
-}
-.botones {  
-    /*font-family:verdana,arial;*/     /* tipo de letra */  
-    /*width: 500px;*/                 /* anchura de campos de formulario */  
-    /*font-size:8pt;*/                /* tamaño de la letra*/   
-    color:#ffffff;                 /* color del texto */   
-    /* border: 2px solid #2E86C1;*/        /* color del borde puede ser solid ó dotted */   
-    background-color:#4D5656;    /* color del fondo */  
+.campos {
+    color: #ffffff;
+    border: 2px solid #2E86C1;
+    background-color: #4D5656;
 }
 
+.botones {
+    color: #ffffff;
+    background-color: #4D5656;
+}
+
+/* NUEVO ESTILO MODERNO PARA LA TABLA */
+.modern-table-wrapper {
+    width: 80%;
+    margin: 40px auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+
+.modern-table-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.modern-table-title {
+    background-color: #009688;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
+    border-bottom: 2px solid #00796B;
+}
+
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', sans-serif;
+    table-layout: auto; /* ← Ajuste automático para el contenido */
+}
+
+.modern-table thead {
+    background-color: #e0f2f1;
+    color: #333;
+}
+
+.modern-table th,
+.modern-table td {
+    padding: 16px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #ccc;
+    white-space: nowrap; /* ← Impide que el texto se parta */
+}
+
+/* Columnas importantes ajustadas sin espacio extra */
+.modern-table td:nth-child(1),
+.modern-table th:nth-child(1) {
+    width: 22%; /* Nombre */
+}
+
+.modern-table td:nth-child(3),
+.modern-table th:nth-child(3) {
+    width: 22%; /* Área */
+}
+
+.modern-table td:nth-child(4),
+.modern-table th:nth-child(4) {
+    width: 22%; /* Email */
+}
+
+/* Alternancia de color en el cuerpo */
+.modern-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover dinámico */
+.modern-table tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease;
+}
