@@ -1,14 +1,10 @@
 h3 {
-    color: blue;
+    color: #FF7043; /* Naranja */
 }
 
-ast {
-    color: red;
-}
-
-MiTitulo {
+.MiTitulo {
     display: block;
-    background-color: #4D5656;
+    background-color: #FF7043; /* Naranja */
     padding: 10px;
     font-size: 30px;
     color: #ffffff;
@@ -16,7 +12,7 @@ MiTitulo {
 
 .Correcto {
     display: block;
-    background-color: #228B22;
+    background-color: #FF5722; /* Naranja oscuro */
     padding: 10px;
     font-size: 30px;
     text-align: center;
@@ -25,24 +21,24 @@ MiTitulo {
 
 .Errort {
     display: block;
-    background-color: #800000;
+    background-color: #D84315; /* Naranja más oscuro */
     padding: 10px;
     font-size: 30px;
     text-align: center;
     color: #ffffff;
 }
 
-MiBarra {
+.MiBarra {
     display: block;
-    background-color: #000000;
+    background-color: #FF7043; /* Naranja */
     padding: 5px;
     font-size: 10px;
     color: #ffffff;
 }
 
-BInicio {
+.BInicio {
     display: inline-block;
-    background: #4D5656;
+    background: #FF7043; /* Naranja */
     padding: 15px;
     font-size: 15px;
     height: 15px;
@@ -51,13 +47,13 @@ BInicio {
 
 .campos {
     color: #ffffff;
-    border: 2px solid #2E86C1;
-    background-color: #4D5656;
+    border: 2px solid #FF7043; /* Naranja */
+    background-color: #FF7043; /* Naranja */
 }
 
 .botones {
     color: #ffffff;
-    background-color: #4D5656;
+    background-color: #FF7043; /* Naranja */
 }
 
 /* NUEVO ESTILO MODERNO PARA LA TABLA */
@@ -77,14 +73,14 @@ BInicio {
 }
 
 .modern-table-title {
-    background-color: #009688;
+    background-color: #FF7043; /* Naranja */
     color: white;
     text-align: center;
     padding: 20px;
     font-size: 24px;
     font-weight: bold;
     font-family: 'Segoe UI', sans-serif;
-    border-bottom: 2px solid #00796B;
+    border-bottom: 2px solid #D84B31; /* Naranja más oscuro */
 }
 
 .modern-table {
@@ -95,7 +91,7 @@ BInicio {
 }
 
 .modern-table thead {
-    background-color: #e0f2f1;
+    background-color: #FFEBEE; /* Naranja claro */
     color: #333;
 }
 
@@ -131,6 +127,213 @@ BInicio {
 
 /* Hover dinámico */
 .modern-table tbody tr:hover {
-    background-color: #f1f1f1;
+    background-color: #FFCCBC; /* Hover en naranja suave */
     transition: background-color 0.3s ease;
+}
+
+
+
+
+/* Botones modernos */
+.modern-btn {
+    display: inline-block;
+    background-color: #FF7043; /* Naranja */
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Segoe UI', sans-serif;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 10px;
+}
+
+.modern-btn:hover {
+    background-color: #FF5722; /* Naranja oscuro */
+    transform: translateY(-3px);
+}
+
+.modern-btn:active {
+    background-color: #D84315; /* Naranja más oscuro */
+    transform: translateY(1px);
+}
+
+
+
+/* Texto en naranja */
+.w3-text-teal, .w3-text-teal .w3-xlarge, .w3-text-teal .fa {
+    color: #D84315 !important; /* Naranja */
+}
+
+/* Títulos y etiquetas específicas */
+.w3-text-teal b {
+    color: #000000 !important; /* Naranja */
+}
+
+.w3-label {
+    color: #000000 !important; /* Naranja para las etiquetas de formularios */
+}
+
+/* Específicamente para los títulos de la tabla */
+.modern-table th {
+    color: #000000 !important; /* Naranja para los encabezados de la tabla */
+}
+
+
+
+/* NUEVO ESTILO PARA EL FILTRO COINCIDIENDO CON LA TABLA */
+.modern-filter-wrapper {
+    width: 60%;
+    margin: 30px auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modern-filter-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.modern-filter-title {
+    background-color: #FF7043; /* Mismo naranja que la tabla */
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
+    border-bottom: 2px solid #D84B31; /* Borde igual que la tabla */
+    text-align: center;
+}
+
+.modern-filter-content {
+    padding: 25px 35px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.filter-label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 500;
+    color: #333;
+    font-size: 16px;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 12px 18px;
+    border: 2px solid #FFEBEE; /* Borde similar a la tabla */
+    border-radius: 8px;
+    background-color: white;
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #FF7043; /* Naranja al enfocar */
+}
+
+.filter-radio-group {
+    margin: 25px 0;
+    padding: 15px;
+    border: 2px solid #FFEBEE; /* Mismo estilo que tabla */
+    border-radius: 8px;
+}
+
+.filter-radio-label {
+    display: block;
+    margin: 12px 0;
+    color: #555;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.filter-radio {
+    margin-right: 10px;
+    accent-color: #FF7043; /* Color naranja para los radios */
+}
+
+/* Botones alineados con el estilo de la tabla */
+.modern-btn {
+    background-color: #FF7043;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modern-btn.w3-orange {
+    background-color: #FFA726; /* Naranja más claro para el botón limpiar */
+}
+
+.modern-btn:hover {
+    background-color: #FF5722;
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modern-filter-wrapper {
+        width: 90%;
+        margin: 20px auto;
+    }
+    
+    .modern-filter-title {
+        font-size: 20px;
+        padding: 15px;
+    }
+    
+    .modern-filter-content {
+        padding: 20px;
+    }
+    
+    .filter-select {
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modern-filter-wrapper {
+        border-radius: 12px;
+    }
+    
+    .modern-filter-title {
+        font-size: 18px;
+    }
+    
+    .filter-label {
+        font-size: 15px;
+    }
+}
+
+
+/* Añadir estos estilos para los inputs de texto */
+.filter-select[type="text"] {
+    width: 100%;
+    padding: 12px 18px;
+    margin: 8px 0;
+    border: 2px solid #FFEBEE;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.filter-select[type="text"]:focus {
+    border-color: #FF7043;
+    box-shadow: 0 0 8px rgba(255, 112, 67, 0.3);
+    outline: none;
+}
+
+/* Ajustar espaciado entre grupos */
+.w3-margin-bottom {
+    margin-bottom: 20px !important;
 }
