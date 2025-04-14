@@ -79,7 +79,6 @@ try {
 }
 ?>
 
-<?php include("menu.php"); ?>
 
 <!doctype html>
 <html>
@@ -92,74 +91,86 @@ try {
 </head>
 <body>
 
-<!-- Filtro moderno -->
-<div class="modern-filter-wrapper">
-    <div class="modern-table-title">
-        <i class="fa fa-filter"></i> Filtrar Directorio
+
+
+<!-- Filtro + logo en contenedor conjunto -->
+<div class="filter-logo-container">
+    <div class="modern-filter-wrapper">
+        <div class="modern-table-title">
+            <i class="fa fa-filter"></i> Filtrar Directorio
+        </div>
+        
+        <form name="filtrar" action="index.php" method="post" class="modern-filter-content">
+            <!-- TODO el contenido del formulario igual que antes -->
+            <!-- Buscar por nombre -->
+            <div class="w3-margin-bottom">
+                <label class="filter-label"><i class="fa fa-search w3-text-orange"></i> Buscar por Nombre</label>
+                <input class="filter-select" type="text" name="nombre" placeholder="Introduce nombre o apellidos"
+                    value="<?= isset($_POST['nombre']) ? htmlspecialchars($_POST['nombre']) : '' ?>">
+            </div>
+
+            <!-- Área -->
+            <div class="w3-margin-bottom">
+                <label class="filter-label"><i class="fa fa-users w3-text-orange"></i> Seleccionar Área</label>
+                <select name="dep" class="filter-select">
+                    <option value="" <?= !isset($_POST['dep']) ? 'selected' : '' ?>>Todas las áreas</option>
+                    <?php
+                        $consulta = "SELECT nombre_area FROM area ORDER BY nombre_area ASC;";
+                        $result_area = $conn->query($consulta);
+                        while ($lineas = $result_area->fetch_assoc()) {
+                            $selected = (isset($_POST['dep']) && $_POST['dep'] == $lineas["nombre_area"]) ? 'selected' : '';
+                            echo "<option value='" . htmlspecialchars($lineas["nombre_area"]) . "' $selected>" . htmlspecialchars($lineas["nombre_area"]) . "</option>";
+                        }
+                    ?>
+                </select>
+            </div>
+
+            <!-- Ordenar por -->
+            <div class="filter-radio-group">
+                <label class="filter-label"><i class="fa fa-sort w3-text-orange"></i> Ordenar por:</label>
+
+                <label class="filter-radio-label">
+                    <input class="filter-radio" type="radio" name="ord" value="empleados.nombre_apellidos"
+                        <?= (!isset($_POST['ord']) || $_POST['ord'] == 'empleados.nombre_apellidos') ? 'checked' : '' ?>>
+                    Nombre (A-Z)
+                </label>
+
+                <label class="filter-radio-label">
+                    <input class="filter-radio" type="radio" name="ord" value="empleados.extension"
+                        <?= (isset($_POST['ord']) && $_POST['ord'] == 'empleados.extension') ? 'checked' : '' ?>>
+                    Extensión
+                </label>
+
+                <label class="filter-radio-label">
+                    <input class="filter-radio" type="radio" name="ord" value="area.nombre_area"
+                        <?= (isset($_POST['ord']) && $_POST['ord'] == 'area.nombre_area') ? 'checked' : '' ?>>
+                    Área
+                </label>
+            </div>
+
+            <!-- Botones -->
+            <div class="w3-row w3-section" style="margin-top: 25px;">
+                <div class="w3-half" style="padding-right: 10px;">
+                    <button class="modern-btn w3-block" type="submit" name="filtro" title="Filtrar">
+                        <i class="fa fa-filter"></i> Aplicar Filtros
+                    </button>
+                </div>
+                <div class="w3-half" style="padding-left: 10px;">
+                    <a href="index.php" class="modern-btn w3-block w3-orange">
+                        <i class="fa fa-times"></i> Limpiar Filtros
+                    </a>
+                </div>
+            </div>
+        </form>
     </div>
-    
-    <form name="filtrar" action="index.php" method="post" class="modern-filter-content">
-        <!-- Buscar por nombre -->
-        <div class="w3-margin-bottom">
-            <label class="filter-label"><i class="fa fa-search w3-text-orange"></i> Buscar por Nombre</label>
-            <input class="filter-select" type="text" name="nombre" placeholder="Introduce nombre o apellidos"
-                value="<?= isset($_POST['nombre']) ? htmlspecialchars($_POST['nombre']) : '' ?>">
-        </div>
 
-        <!-- Área -->
-        <div class="w3-margin-bottom">
-            <label class="filter-label"><i class="fa fa-users w3-text-orange"></i> Seleccionar Área</label>
-            <select name="dep" class="filter-select">
-                <option value="" <?= !isset($_POST['dep']) ? 'selected' : '' ?>>Todas las áreas</option>
-                <?php
-                    $consulta = "SELECT nombre_area FROM area ORDER BY nombre_area ASC;";
-                    $result_area = $conn->query($consulta);
-                    while ($lineas = $result_area->fetch_assoc()) {
-                        $selected = (isset($_POST['dep']) && $_POST['dep'] == $lineas["nombre_area"]) ? 'selected' : '';
-                        echo "<option value='" . htmlspecialchars($lineas["nombre_area"]) . "' $selected>" . htmlspecialchars($lineas["nombre_area"]) . "</option>";
-                    }
-                ?>
-            </select>
-        </div>
-
-        <!-- Ordenar por -->
-        <div class="filter-radio-group">
-            <label class="filter-label"><i class="fa fa-sort w3-text-orange"></i> Ordenar por:</label>
-
-            <label class="filter-radio-label">
-                <input class="filter-radio" type="radio" name="ord" value="empleados.nombre_apellidos"
-                    <?= (!isset($_POST['ord']) || $_POST['ord'] == 'empleados.nombre_apellidos') ? 'checked' : '' ?>>
-                Nombre (A-Z)
-            </label>
-
-            <label class="filter-radio-label">
-                <input class="filter-radio" type="radio" name="ord" value="empleados.extension"
-                    <?= (isset($_POST['ord']) && $_POST['ord'] == 'empleados.extension') ? 'checked' : '' ?>>
-                Extensión
-            </label>
-
-            <label class="filter-radio-label">
-                <input class="filter-radio" type="radio" name="ord" value="area.nombre_area"
-                    <?= (isset($_POST['ord']) && $_POST['ord'] == 'area.nombre_area') ? 'checked' : '' ?>>
-                Área
-            </label>
-        </div>
-
-        <!-- Botones -->
-        <div class="w3-row w3-section" style="margin-top: 25px;">
-            <div class="w3-half" style="padding-right: 10px;">
-                <button class="modern-btn w3-block" type="submit" name="filtro" title="Filtrar">
-                    <i class="fa fa-filter"></i> Aplicar Filtros
-                </button>
-            </div>
-            <div class="w3-half" style="padding-left: 10px;">
-                <a href="index.php" class="modern-btn w3-block w3-orange">
-                    <i class="fa fa-times"></i> Limpiar Filtros
-                </a>
-            </div>
-        </div>
-    </form>
+    <!-- Logo a la derecha -->
+    <div>
+        <img src="imagenes/Ateneologo.jpg" alt="Logo del Ateneo" class="logo-ateneo">
+    </div>
 </div>
+
+
 
 <!-- Tabla moderna -->
 <div class="modern-table-wrapper">

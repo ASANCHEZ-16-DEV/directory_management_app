@@ -134,7 +134,7 @@ h3 {
 
 
 
-/* Botones modernos */
+/*  *Botones modernos */
 .modern-btn {
     display: inline-block;
     background-color: #FF7043; /* Naranja */
@@ -182,10 +182,10 @@ h3 {
 
 
 
-/* NUEVO ESTILO PARA EL FILTRO COINCIDIENDO CON LA TABLA */
+/* * NUEVO ESTILO PARA EL FILTRO COINCIDIENDO CON LA TABLA */
 .modern-filter-wrapper {
     width: 60%;
-    margin: 30px auto;
+    margin: 10px auto;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
@@ -259,7 +259,7 @@ h3 {
     accent-color: #FF7043; /* Color naranja para los radios */
 }
 
-/* Botones alineados con el estilo de la tabla */
+/*  * Botones alineados con el estilo de la tabla */
 .modern-btn {
     background-color: #FF7043;
     border: none;
@@ -280,7 +280,7 @@ h3 {
     box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
 }
 
-/* Responsive */
+/* *  Responsive */
 @media (max-width: 768px) {
     .modern-filter-wrapper {
         width: 90%;
@@ -316,7 +316,7 @@ h3 {
 }
 
 
-/* Añadir estos estilos para los inputs de texto */
+/* *  Añadir estos estilos para los inputs de texto */
 .filter-select[type="text"] {
     width: 100%;
     padding: 12px 18px;
@@ -336,4 +336,68 @@ h3 {
 /* Ajustar espaciado entre grupos */
 .w3-margin-bottom {
     margin-bottom: 20px !important;
+}
+
+
+
+/* CONTENEDOR PRINCIPAL */
+.filter-logo-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    max-width: 1300px;
+    width: 95%;
+    padding: 0 20px;
+}
+
+/* VENTANA DE FILTRAR CON CONTENEDOR FLEX */
+.modern-filter-wrapper {
+    width: 750px;
+    min-height: 450px;
+    margin-right: 90px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+/* LOGO CON ALINEACIÓN FLEXIBLE */
+.logo-container {
+    display: flex;
+    align-self: center; /* Clave para el centrado vertical */
+    width: 200px;
+    height: 200px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: calc((450px - 200px) / 2); /* Cálculo exacto de centrado */
+}
+
+/* AJUSTE PARA CONTENIDO DEL FILTRO */
+.modern-filter-content {
+    padding: 20px 35px;
+    flex: 1; /* Ocupa todo el espacio disponible */
+}
+
+/* VERSIÓN MÓVIL */
+@media (max-width: 1000px) {
+    .filter-logo-container {
+        flex-direction: column;
+    }
+    
+    .modern-filter-wrapper {
+        width: 90%;
+        min-height: auto;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .logo-container {
+        margin-top: 30px;
+        align-self: center;
+        width: 180px;
+        height: 180px;
+    }
 }
