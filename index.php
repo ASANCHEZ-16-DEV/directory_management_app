@@ -1,6 +1,8 @@
 <?php
 require_once("conexion.php");
 
+// TODO : Corregir para que no pida login al entrar a index.php
+
 // Inicializar parámetros
 $nombre = isset($_POST['nombre']) ? trim($_POST['nombre']) : '';
 $dep = isset($_POST['dep']) ? $_POST['dep'] : '';
@@ -91,7 +93,13 @@ try {
 </head>
 <body>
 
-
+<!-- Barra superior con botón de administración -->
+<div class="w3-bar w3-orange">
+    <a href="index.php" class="w3-bar-item w3-button">Directorio</a>
+    <a href="admin/login.php" class="w3-bar-item w3-button w3-right">
+        <i class="fa fa-lock"></i> Acceso Administración
+    </a>
+</div>
 
 <!-- Filtro + logo en contenedor conjunto -->
 <div class="filter-logo-container">

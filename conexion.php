@@ -1,21 +1,24 @@
 ﻿<?php
+// String de conexión a la base de datos de directorio
+$usuario = "root";
+$pass = "";
+$server = "localhost";
+$db = "directorio";
 
-//String de conexion a la base de datos de directorio
-    
-$usuario="root";
-$pass="";
-$server="localhost";
-$db="directorio";
-
-// Creamos la conexión y la almacenamos en la variable $con
-// Create connection
+// Creamos la conexión
 $conn = new mysqli($server, $usuario, $pass, $db);
 $conn->set_charset('utf8');
 
-// Check connection
+// Verificar conexión
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+    error_log("Error de conexión: " . $conn->connect_error);
+    die("Error en el sistema. Por favor, inténtelo más tarde.");
+}
 
-
+// Configuración de sesión segura
+session_start([
+    'cookie_httponly' => true,
+    'cookie_secure' => false, // TODO: Cambiar a true en producción con HTTPS
+    'use_strict_mode' => true
+]);
 ?>

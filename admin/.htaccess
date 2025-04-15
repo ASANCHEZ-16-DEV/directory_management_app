@@ -1,6 +1,0 @@
-
-AuthUserFile /etc/apache2/conf/.htpasswd
-AuthName "Directorio Protegido"
-AuthType Basic
-require valid-user
-

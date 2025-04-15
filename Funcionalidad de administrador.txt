@@ -1,0 +1,8 @@
+Funcionalidad de administrador: 
+
+- Añadir nuevo registro
+- Eliminar un registro
+- Modificar un registro
+
+Para acceder a las funciones de administrador poner una pagina aparte (ver como implementar) y un login 
+que valide que eres administrador

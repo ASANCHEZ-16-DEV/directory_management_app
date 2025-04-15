@@ -401,3 +401,20 @@ h3 {
         height: 180px;
     }
 }
+
+
+/* *  Footer */
+.footer-container {
+    background-color: #ff9800; /* Mismo naranja que w3-orange */
+    color: white;
+    padding: 10px 0;
+    font-weight: bold;
+  }
+  
+  .footer-ateneo hr {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    margin: 0;
+  }
+  
