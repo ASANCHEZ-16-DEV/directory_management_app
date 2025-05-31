@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 // Configuración de sesión segura
 session_start([
     'cookie_httponly' => true,
-    'cookie_secure' => false, // TODO: Cambiar a true en producción con HTTPS
+    'cookie_secure' => true,
     'use_strict_mode' => true
 ]);
 ?>

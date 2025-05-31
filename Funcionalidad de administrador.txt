@@ -1,8 +1,25 @@
+-------------------------------------------------------------------------------------------------------------------
 Funcionalidad de administrador: 
 
 - Añadir nuevo registro
 - Eliminar un registro
 - Modificar un registro
 
+
 Para acceder a las funciones de administrador poner una pagina aparte (ver como implementar) y un login 
-que valide que eres administrador
+que valide que eres administrador, ver que tipo de tabla vamos a implementar, si va a ser una replica de 
+el frontend principal o si lo haremos diferente
+
+
+Idea de procedimiento para la nueva página de administrador, cogemos el index.php con las consultas actuales y lo pegamos
+en el panel de administrador (admin/index.php) y ahí incluimos las consultas nuevas del CRUD aparte de los select, vamos
+basicamente reutilizar la tabla actual
+
+
+--------------------------------------------------------------------------------------------------------------------
+Cambios en la base de datos: 
+
+- Incluir los nuevos campos actualizados con el excel en empleados (chatgpt o script)
+- Verificar los tipos de usuario que tenemos en la tabla usuarios
+- Dumpear la base de datos modificada cuando este hecha
+

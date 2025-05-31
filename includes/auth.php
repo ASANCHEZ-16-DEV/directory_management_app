@@ -4,7 +4,7 @@ require_once(__DIR__ . '/../conexion.php');
 function loginUser($username, $password) {
     global $conn;
     
-    $sql = "SELECT Id, login, passwd, rol FROM Usuarios WHERE login = ? LIMIT 1";
+    $sql = "SELECT id, login, passwd, rol FROM usuarios WHERE login = ? LIMIT 1";
     $stmt = $conn->prepare($sql);
     
     if (!$stmt) {

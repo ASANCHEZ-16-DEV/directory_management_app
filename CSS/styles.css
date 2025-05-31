@@ -1,3 +1,4 @@
+/* * REGLAS GENERALES */
 h3 {
     color: #FF7043; /* Naranja */
 }
@@ -56,7 +57,9 @@ h3 {
     background-color: #FF7043; /* Naranja */
 }
 
-/* NUEVO ESTILO MODERNO PARA LA TABLA */
+
+
+/** ESTILO MODERNO PARA LA TABLA */
 .modern-table-wrapper {
     width: 80%;
     margin: 40px auto;
@@ -73,25 +76,25 @@ h3 {
 }
 
 .modern-table-title {
-    background-color: #FF7043; /* Naranja */
+    background-color: #FF7043;
     color: white;
     text-align: center;
     padding: 20px;
     font-size: 24px;
     font-weight: bold;
     font-family: 'Segoe UI', sans-serif;
-    border-bottom: 2px solid #D84B31; /* Naranja más oscuro */
+    border-bottom: 2px solid #D84B31;
 }
 
 .modern-table {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Segoe UI', sans-serif;
-    table-layout: auto; /* ← Ajuste automático para el contenido */
+    table-layout: auto;
 }
 
 .modern-table thead {
-    background-color: #FFEBEE; /* Naranja claro */
+    background-color: #FFEBEE;
     color: #333;
 }
 
@@ -101,95 +104,128 @@ h3 {
     text-align: center;
     vertical-align: middle;
     border-bottom: 1px solid #ccc;
-    white-space: nowrap; /* ← Impide que el texto se parta */
+    white-space: nowrap;
 }
 
-/* Columnas importantes ajustadas sin espacio extra */
 .modern-table td:nth-child(1),
 .modern-table th:nth-child(1) {
-    width: 22%; /* Nombre */
+    width: 22%;
 }
 
 .modern-table td:nth-child(3),
 .modern-table th:nth-child(3) {
-    width: 22%; /* Área */
+    width: 22%;
 }
 
 .modern-table td:nth-child(4),
 .modern-table th:nth-child(4) {
-    width: 22%; /* Email */
+    width: 22%;
 }
 
-/* Alternancia de color en el cuerpo */
 .modern-table tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-/* Hover dinámico */
 .modern-table tbody tr:hover {
-    background-color: #FFCCBC; /* Hover en naranja suave */
+    background-color: #FFCCBC;
     transition: background-color 0.3s ease;
 }
 
+/** BOTONES MODERNOS */
 
+/* Contenedor de botones alineados */
+.filter-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre botones */
+    margin-top: 20px;
+    align-items: center; /* Alineación vertical perfecta */
+}
 
-
-/*  *Botones modernos */
+/* Estilo unificado para ambos botones */
 .modern-btn {
-    display: inline-block;
-    background-color: #FF7043; /* Naranja */
-    color: #ffffff;
-    padding: 10px 20px;
+    background-color: #FF7043;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
     font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none; /* Elimina cualquier borde */
+    outline: none; /* Elimina el outline por defecto */
     font-family: 'Segoe UI', sans-serif;
-    border-radius: 6px;
     text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin: 10px;
+    min-width: 120px; /* Ancho mínimo igual para ambos */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px; /* Altura fija para alineación perfecta */
+    box-shadow: none; /* Elimina sombra si la hubiera */
 }
 
+/* Botón limpiar (naranja claro) */
+.modern-btn.w3-orange {
+    background-color: #FFA726;
+}
+
+/* Efectos hover */
 .modern-btn:hover {
-    background-color: #FF5722; /* Naranja oscuro */
-    transform: translateY(-3px);
+    background-color: #FF5722;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+.modern-btn.w3-orange:hover {
+    background-color: #FF9800;
+}
+
+/* Efecto activo */
 .modern-btn:active {
-    background-color: #D84315; /* Naranja más oscuro */
-    transform: translateY(1px);
+    transform: translateY(0);
+    box-shadow: none;
 }
 
-
-
-/* Texto en naranja */
+/** ESTILOS DE TEXTO */
 .w3-text-teal, .w3-text-teal .w3-xlarge, .w3-text-teal .fa {
-    color: #D84315 !important; /* Naranja */
+    color: #D84315 !important;
 }
 
-/* Títulos y etiquetas específicas */
 .w3-text-teal b {
-    color: #000000 !important; /* Naranja */
+    color: #000000 !important;
 }
 
 .w3-label {
-    color: #000000 !important; /* Naranja para las etiquetas de formularios */
+    color: #000000 !important;
 }
 
-/* Específicamente para los títulos de la tabla */
 .modern-table th {
-    color: #000000 !important; /* Naranja para los encabezados de la tabla */
+    color: #000000 !important;
 }
 
+/** CONTENEDOR PRINCIPAL FILTRO + LOGO */
+.filter-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    max-width: 1300px;
+    padding: 0 40px;
+    gap: 60px;
+    width: 100%;
+}
 
-
-/* * NUEVO ESTILO PARA EL FILTRO COINCIDIENDO CON LA TABLA */
+/** VENTANA DE FILTRO (VERSIÓN FINAL) */
 .modern-filter-wrapper {
-    width: 60%;
-    margin: 10px auto;
+    width: 460px;
+    min-height: 360px;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    flex-shrink: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -199,105 +235,115 @@ h3 {
 }
 
 .modern-filter-title {
-    background-color: #FF7043; /* Mismo naranja que la tabla */
+    background-color: #FF7043;
     color: white;
-    padding: 20px;
-    font-size: 24px;
+    padding: 16px;
+    font-size: 22px;
     font-weight: bold;
     font-family: 'Segoe UI', sans-serif;
-    border-bottom: 2px solid #D84B31; /* Borde igual que la tabla */
+    border-bottom: 2px solid #D84B31;
     text-align: center;
 }
 
 .modern-filter-content {
-    padding: 25px 35px;
+    padding: 20px 30px;
     font-family: 'Segoe UI', sans-serif;
 }
 
 .filter-label {
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     font-weight: 500;
     color: #333;
-    font-size: 16px;
+    font-size: 15px;
 }
 
-.filter-select {
+.filter-select,
+.filter-select[type="text"] {
     width: 100%;
-    padding: 12px 18px;
-    border: 2px solid #FFEBEE; /* Borde similar a la tabla */
+    padding: 10px 15px;
+    border: 2px solid #FFEBEE;
     border-radius: 8px;
     background-color: white;
     font-size: 15px;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     transition: border-color 0.3s ease;
 }
 
-.filter-select:focus {
+.filter-select:focus,
+.filter-select[type="text"]:focus {
     outline: none;
-    border-color: #FF7043; /* Naranja al enfocar */
+    border-color: #FF7043;
+    box-shadow: 0 0 8px rgba(255, 112, 67, 0.3);
 }
 
 .filter-radio-group {
-    margin: 25px 0;
-    padding: 15px;
-    border: 2px solid #FFEBEE; /* Mismo estilo que tabla */
+    margin: 20px 0;
+    padding: 12px;
+    border: 2px solid #FFEBEE;
     border-radius: 8px;
 }
 
 .filter-radio-label {
     display: block;
-    margin: 12px 0;
+    margin: 10px 0;
     color: #555;
     font-size: 15px;
     cursor: pointer;
 }
 
 .filter-radio {
-    margin-right: 10px;
-    accent-color: #FF7043; /* Color naranja para los radios */
+    margin-right: 8px;
+    accent-color: #FF7043;
 }
 
-/*  * Botones alineados con el estilo de la tabla */
-.modern-btn {
-    background-color: #FF7043;
-    border: none;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+/** LOGO (VERSIÓN OPTIMIZADA) */
+.logo-container {
+    width: 420px;
+    height: 420px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
-.modern-btn.w3-orange {
-    background-color: #FFA726; /* Naranja más claro para el botón limpiar */
+.logo-ateneo {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
 }
 
-.modern-btn:hover {
-    background-color: #FF5722;
-    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+/** ESPACIADO ADICIONAL */
+.w3-margin-bottom {
+    margin-bottom: 20px !important;
 }
 
-/* *  Responsive */
-@media (max-width: 768px) {
-    .modern-filter-wrapper {
-        width: 90%;
+/** VERSIÓN MÓVIL */
+@media (max-width: 1000px) {
+    .filter-logo-container {
+        flex-direction: column;
+        gap: 40px;
+        padding: 30px 20px;
         margin: 20px auto;
     }
     
-    .modern-filter-title {
-        font-size: 20px;
-        padding: 15px;
+    .modern-filter-wrapper {
+        width: 100%;
+        max-width: 460px;
+        min-height: auto;
     }
     
-    .modern-filter-content {
-        padding: 20px;
-    }
-    
-    .filter-select {
-        padding: 10px 15px;
+    .logo-container {
+        width: 300px;
+        height: 300px;
+        order: 2;
     }
 }
 
@@ -307,100 +353,26 @@ h3 {
     }
     
     .modern-filter-title {
-        font-size: 18px;
-    }
-    
-    .filter-label {
-        font-size: 15px;
-    }
-}
-
-
-/* *  Añadir estos estilos para los inputs de texto */
-.filter-select[type="text"] {
-    width: 100%;
-    padding: 12px 18px;
-    margin: 8px 0;
-    border: 2px solid #FFEBEE;
-    border-radius: 8px;
-    font-size: 15px;
-    transition: all 0.3s ease;
-}
-
-.filter-select[type="text"]:focus {
-    border-color: #FF7043;
-    box-shadow: 0 0 8px rgba(255, 112, 67, 0.3);
-    outline: none;
-}
-
-/* Ajustar espaciado entre grupos */
-.w3-margin-bottom {
-    margin-bottom: 20px !important;
-}
-
-
-
-/* CONTENEDOR PRINCIPAL */
-.filter-logo-container {
-    display: flex;
-    justify-content: center;
-    margin: 30px auto;
-    max-width: 1300px;
-    width: 95%;
-    padding: 0 20px;
-}
-
-/* VENTANA DE FILTRAR CON CONTENEDOR FLEX */
-.modern-filter-wrapper {
-    width: 750px;
-    min-height: 450px;
-    margin-right: 90px;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-}
-
-/* LOGO CON ALINEACIÓN FLEXIBLE */
-.logo-container {
-    display: flex;
-    align-self: center; /* Clave para el centrado vertical */
-    width: 200px;
-    height: 200px;
-    padding: 15px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-top: calc((450px - 200px) / 2); /* Cálculo exacto de centrado */
-}
-
-/* AJUSTE PARA CONTENIDO DEL FILTRO */
-.modern-filter-content {
-    padding: 20px 35px;
-    flex: 1; /* Ocupa todo el espacio disponible */
-}
-
-/* VERSIÓN MÓVIL */
-@media (max-width: 1000px) {
-    .filter-logo-container {
-        flex-direction: column;
-    }
-    
-    .modern-filter-wrapper {
-        width: 90%;
-        min-height: auto;
-        margin-right: 0;
-        margin-bottom: 30px;
+        font-size: 20px;
+        padding: 14px;
     }
     
     .logo-container {
-        margin-top: 30px;
-        align-self: center;
-        width: 180px;
-        height: 180px;
+        width: 260px;
+        height: 260px;
+        padding: 15px;
+    }
+    
+    .modern-filter-content {
+        padding: 15px 20px;
+    }
+    
+    .filter-label {
+        font-size: 14px;
     }
 }
+
+/* Mantén todos tus otros estilos existentes (para .modern-filter-title, .filter-select, etc) */
 
 
 /* *  Footer */

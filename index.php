@@ -2,7 +2,8 @@
 require_once("conexion.php");
 
 // TODO : Corregir para que no pida login al entrar a index.php
-
+// ! ERROR: La tabla de normal no muestra Extension pero cuando busco un nombre si la muestre y se muestra
+// !        más ajustada
 // Inicializar parámetros
 $nombre = isset($_POST['nombre']) ? trim($_POST['nombre']) : '';
 $dep = isset($_POST['dep']) ? $_POST['dep'] : '';
@@ -85,7 +86,8 @@ try {
 <!doctype html>
 <html>
 <head>
-    <title>Directorio del Ateneo Santa Lucía de Tirajana</title>
+    <!-- // ? Propiedades de página -->
+    <title>Directorio del Ateneo</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="CSS/w3.css"> 
     <link rel="stylesheet" href="CSS/font-awesome/css/font-awesome.min.css">
@@ -93,17 +95,17 @@ try {
 </head>
 <body>
 
-<!-- Barra superior con botón de administración -->
+<!-- // ? Barra superior con botón de administración -->
 <div class="w3-bar w3-orange">
-    <a href="index.php" class="w3-bar-item w3-button">Directorio</a>
+    <a href="index.php" class="w3-bar-item w3-button">Directorio del Ateneo</a>
     <a href="admin/login.php" class="w3-bar-item w3-button w3-right">
         <i class="fa fa-lock"></i> Acceso Administración
     </a>
 </div>
 
-<!-- Filtro + logo en contenedor conjunto -->
+<!-- // ? Filtro + logo en contenedor conjunto -->
 <div class="filter-logo-container">
-    <div class="modern-filter-wrapper">
+    <div class="modern-filter-wrapper"> <!-- // * Filter window refecence for css -->
         <div class="modern-table-title">
             <i class="fa fa-filter"></i> Filtrar Directorio
         </div>
@@ -174,24 +176,25 @@ try {
 
     <!-- Logo a la derecha -->
     <div>
-        <img src="imagenes/Ateneologo.jpg" alt="Logo del Ateneo" class="logo-ateneo">
+        <img src="imagenes/Ateneologo.png" alt="Logo del Ateneo" class="logo-ateneo">
     </div>
 </div>
 
 
 
-<!-- Tabla moderna -->
+
+<!-- // ? Tabla de personal interno -->
 <div class="modern-table-wrapper">
     <div class="modern-table-title">Personal interno</div>
     <table class="modern-table">
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Ext</th>
                 <th>Área</th>
                 <th>Email</th>
                 <th>Teléfono Móvil</th>
                 <th>Teléfono Fijo</th>
+                <th>Ext</th>
             </tr>
         </thead>
         <tbody>
@@ -200,11 +203,11 @@ try {
                     while ($stmt->fetch()) {
                         echo "<tr>";
                         echo "<td>" . htmlspecialchars($nombre_apellidos) . "</td>";
-                        echo "<td>" . htmlspecialchars($extension) . "</td>";
                         echo "<td>" . htmlspecialchars($nombre_area) . "</td>";
-                        echo "<td>" . htmlspecialchars($email) . "</td>";
+                        echo "<td>" . nl2br(htmlspecialchars($email)) . "</td>";
                         echo "<td>" . htmlspecialchars($telefono_movil) . "</td>";
                         echo "<td>" . htmlspecialchars($telefono_fijo) . "</td>";
+                        echo "<td>" . htmlspecialchars($extension) . "</td>";
                         echo "</tr>";
                     }
                 } else {
