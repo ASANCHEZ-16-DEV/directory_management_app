@@ -1,4 +1,4 @@
-/* * REGLAS GENERALES */
+/* ? REGLAS GENERALES */
 h3 {
     color: #FF7043; /* Naranja */
 }
@@ -58,6 +58,7 @@ h3 {
 }
 
 
+/*? CONTENIDO DE INDEX.PHP */
 
 /** ESTILO MODERNO PARA LA TABLA */
 .modern-table-wrapper {
@@ -201,6 +202,7 @@ h3 {
 .modern-table th {
     color: #000000 !important;
 }
+
 
 /** CONTENEDOR PRINCIPAL FILTRO + LOGO */
 .filter-logo-container {
@@ -372,10 +374,8 @@ h3 {
     }
 }
 
-/* Mantén todos tus otros estilos existentes (para .modern-filter-title, .filter-select, etc) */
 
-
-/* *  Footer */
+/* ?  CONTENIDO PARA EL FOOTER */
 .footer-container {
     background-color: #ff9800; /* Mismo naranja que w3-orange */
     color: white;

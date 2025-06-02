@@ -41,6 +41,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
+        <!-- // ? Barra superior con botón de administración -->
+<div class="w3-bar w3-orange">
+    <a href="/index.php" class="w3-bar-item w3-button">Directorio del Ateneo</a>
+</div>
+
     <div class="login-container w3-card-4">
         <h2 class="w3-center">Acceso Administrador</h2>
         

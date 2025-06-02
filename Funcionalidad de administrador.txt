@@ -19,7 +19,7 @@ basicamente reutilizar la tabla actual
 --------------------------------------------------------------------------------------------------------------------
 Cambios en la base de datos: 
 
-- Incluir los nuevos campos actualizados con el excel en empleados (chatgpt o script)
+- Incluir los nuevos campos actualizados con el excel en empleados 
 - Verificar los tipos de usuario que tenemos en la tabla usuarios
 - Dumpear la base de datos modificada cuando este hecha
 
