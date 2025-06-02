@@ -6,8 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['passwd'] ?? '';
     
     if (loginUser($username, $password)) {
-        if (isAdmin()) {
-            header("Location: index.php"); // TODO: Actualizar nombre de la página de la redirección
+        if ($_SESSION['rol'] === 'administrador') {  // Verificación de rol
+            header("Location: indexadminpanel.php");    // Redirigir al panel
             exit;
         } else {
             $error = "No tienes permisos de administrador";
@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Usuario o contraseña incorrectos";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
