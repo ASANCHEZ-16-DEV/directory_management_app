@@ -1,10 +1,10 @@
 <?php
 require_once('../includes/auth.php');
 
-// Destruir todas las variables de sesión
+// Destroy variables
 $_SESSION = array();
 
-// Borrar la cookie de sesión
+// Delete actual cookie session
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(session_name(), '', time() - 42000,
@@ -13,10 +13,10 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Destruir la sesión
+// Destroy session
 session_destroy();
 
-// Redirigir al login
+// Redirect to login
 header("Location: login.php");
 exit;
 ?>

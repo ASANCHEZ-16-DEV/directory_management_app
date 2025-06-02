@@ -1,7 +1,6 @@
 <?php
-require_once("conexion.php");
+require_once('includes/conexion.php');
 
-// TODO : Corregir para que no pida login al entrar a index.php
 // ! ERROR: La tabla de normal no muestra Extension pero cuando busco un nombre si la muestre y se muestra
 // !        más ajustada
 // Inicializar parámetros

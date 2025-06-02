@@ -1,22 +1,25 @@
 <?php
 require_once('../includes/auth.php');
 
+$error = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['login'] ?? '');
     $password = $_POST['passwd'] ?? '';
-    
+
     if (loginUser($username, $password)) {
-        if ($_SESSION['rol'] === 'administrador') {  // Verificación de rol
-            header("Location: indexadminpanel.php");    // Redirigir al panel
+        if ($_SESSION['rol'] === 'administrador') {
+            header("Location: indexadminpanel.php");
             exit;
         } else {
             $error = "No tienes permisos de administrador";
+            session_destroy();
         }
     } else {
         $error = "Usuario o contraseña incorrectos";
     }
+    // }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -41,37 +44,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="login-container w3-card-4">
         <h2 class="w3-center">Acceso Administrador</h2>
         
-        <?php if (isset($error)): ?>
+        <?php if (!empty($error)): ?>
             <div class="w3-panel w3-red">
                 <p><?= htmlspecialchars($error) ?></p>
             </div>
         <?php endif; ?>
-        
-      <!-- Modifica el formulario cambiando los "name" -->
-    <form method="post" class="w3-container" id="loginForm">
-        <div class="w3-section">
-            <label><b>Usuario</b></label>
-            <input class="w3-input w3-border" type="text" name="login" id="login" required>  <!-- Cambiado de username a login -->
-            
-            <label><b>Contraseña</b></label>
-            <input class="w3-input w3-border" type="password" name="passwd" id="passwd" required>  <!-- Cambiado de password a passwd -->
-            
-            <button class="w3-button w3-block w3-orange w3-section w3-padding" type="submit">
-                Iniciar Sesión
-            </button>
-        </div>
-    </form>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            // Actualiza los IDs para coincidir con los nuevos nombres
-            const login = document.getElementById('login').value;
-            const passwd = document.getElementById('passwd').value;
-            
-            console.log('Debug Login - Datos introducidos:');
-            console.log('Login:', login);
-            console.log('Passwd:', passwd);
-        });
-    </script>
+        <form method="post" class="w3-container" id="loginForm">
+            <div class="w3-section">
+                <label><b>Usuario</b></label>
+                <input class="w3-input w3-border" type="text" name="login" id="login" required>
+
+                <label><b>Contraseña</b></label>
+                <input class="w3-input w3-border" type="password" name="passwd" id="passwd" required>
+
+                <!-- Protección CSRF opcional -->
+                <!-- <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>"> -->
+
+                <button class="w3-button w3-block w3-orange w3-section w3-padding" type="submit">
+                    Iniciar Sesión
+                </button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

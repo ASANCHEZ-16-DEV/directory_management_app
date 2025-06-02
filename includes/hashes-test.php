@@ -1,7 +1,9 @@
 <?php
 require_once(__DIR__ . '/../conexion.php');
 
-$username = 'admin';
+// ? Código para comprobar los hashes de las contraseñas de los usuarios contra la base de datos mediante un input 
+
+$username = 'admin'; // ! Esto son datos ficticios para testing
 $password = 'password';
 
 $sql = "SELECT id, login, passwd, rol FROM usuarios WHERE login = ? LIMIT 1";
