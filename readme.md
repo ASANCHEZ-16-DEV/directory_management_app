@@ -62,6 +62,14 @@ manage-contacts-app/
 └── directorio.sql
 
 
+
+
+
+
+
+
+
+
 ## 🔒 Credenciales de prueba (admin)
 
 * Usuario: admin
