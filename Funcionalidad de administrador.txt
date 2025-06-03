@@ -1,25 +1,43 @@
 -------------------------------------------------------------------------------------------------------------------
+Funcionalidad de usuario: 
+- Ver los datos de el personal del ateneo y filtrarlos mediante diferentes opciones
+
 Funcionalidad de administrador: 
 
-- Añadir nuevo registro
-- Eliminar un registro
-- Modificar un registro
+- Añadir nuevo empleado
+- Eliminar un empleado
+- Modificar un empleado
 
 
-Para acceder a las funciones de administrador poner una pagina aparte (ver como implementar) y un login 
-que valide que eres administrador, ver que tipo de tabla vamos a implementar, si va a ser una replica de 
-el frontend principal o si lo haremos diferente
+Documentación técnica: 
+
+Página principal: index.php - Encontramos la tabla de personal y los filtros, depende de /includes/conexion.php
+
+footer.html: Contiene el pie de pagina de la web
+--------------------------------------------------------------------------------
+
+Páginas de administrador: 
+--------------------------------------------------------------------------------
+/admin - Contiene diferentes archivos de la parte de administrador
+- add_employee.php: Contiene funciones para añadir nuevos empleados
+
+- edit_employee.php: Contiene funciones para editar los empleados existentes
+
+- login.php: Contiene el formulario de inicio de sesion y la verificación de inicio de sesión, depende
+             del archivo /includes/auth.php para funcionar
+
+- logout.php: Contiene funciones para desloguear un usuario en la parte administrativa
+
+indexadminpanel.php: Es la página principal con los paneles de administración de las tablas
 
 
-Idea de procedimiento para la nueva página de administrador, cogemos el index.php con las consultas actuales y lo pegamos
-en el panel de administrador (admin/index.php) y ahí incluimos las consultas nuevas del CRUD aparte de los select, vamos
-basicamente reutilizar la tabla actual
+/includes - 
+- auth.php: Contiene las funciones de verificaciónde roles de usuario y sesion iniciada, depende de conexión.php
+            para funcionar
+
+- conexion.php: Contiene la conexión a la base de datos desplegada localmente
 
 
---------------------------------------------------------------------------------------------------------------------
-Cambios en la base de datos: 
-
-- Incluir los nuevos campos actualizados con el excel en empleados 
-- Verificar los tipos de usuario que tenemos en la tabla usuarios
-- Dumpear la base de datos modificada cuando este hecha
-
+/directorio.sql
+ Contiene un dump de la base de datos para desplegar de forma local
+             

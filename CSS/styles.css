@@ -58,14 +58,13 @@ h3 {
 }
 
 
-/*? CONTENIDO DE INDEX.PHP */
 
 /** ESTILO MODERNO PARA LA TABLA */
 .modern-table-wrapper {
-    width: 80%;
+    width: 95%;
     margin: 40px auto;
     border-radius: 16px;
-    overflow: hidden;
+    overflow: auto;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background-color: white;
@@ -91,7 +90,7 @@ h3 {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Segoe UI', sans-serif;
-    table-layout: auto;
+    table-layout: fixed
 }
 
 .modern-table thead {
@@ -108,20 +107,38 @@ h3 {
     white-space: nowrap;
 }
 
-.modern-table td:nth-child(1),
-.modern-table th:nth-child(1) {
-    width: 22%;
+/* */
+.modern-table th:nth-child(1),
+.modern-table td:nth-child(1) {
+    width: 20%; /* Nombre */
 }
 
-.modern-table td:nth-child(3),
-.modern-table th:nth-child(3) {
-    width: 22%;
+.modern-table th:nth-child(2),
+.modern-table td:nth-child(2) {
+    width: 20% /* Área */
 }
 
-.modern-table td:nth-child(4),
-.modern-table th:nth-child(4) {
-    width: 22%;
+.modern-table th:nth-child(3),
+.modern-table td:nth-child(3) {
+    width: 25%; /* Email */
 }
+
+.modern-table th:nth-child(4),
+.modern-table td:nth-child(4) {
+    width: 13%; /* Teléfono móvil */
+}
+
+.modern-table th:nth-child(5),
+.modern-table td:nth-child(5) {
+    width: 13%; /* Teléfono fijo */
+}
+
+.modern-table th:nth-child(6),
+.modern-table td:nth-child(6) {
+    width: 10%; /* Extensión */
+}
+
+
 
 .modern-table tbody tr:nth-child(even) {
     background-color: #f9f9f9;
@@ -132,8 +149,9 @@ h3 {
     transition: background-color 0.3s ease;
 }
 
-/** BOTONES MODERNOS */
 
+
+/** BOTONES MODERNOS */
 /* Contenedor de botones alineados */
 .filter-buttons-container {
     display: flex;
@@ -150,6 +168,7 @@ h3 {
     padding: 12px 24px;
     border-radius: 8px;
     font-size: 16px;
+    text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
     border: none; /* Elimina cualquier borde */
@@ -186,6 +205,8 @@ h3 {
     box-shadow: none;
 }
 
+
+
 /** ESTILOS DE TEXTO */
 .w3-text-teal, .w3-text-teal .w3-xlarge, .w3-text-teal .fa {
     color: #D84315 !important;
@@ -204,6 +225,7 @@ h3 {
 }
 
 
+
 /** CONTENEDOR PRINCIPAL FILTRO + LOGO */
 .filter-logo-container {
     display: flex;
@@ -215,6 +237,7 @@ h3 {
     gap: 60px;
     width: 100%;
 }
+
 
 /** VENTANA DE FILTRO (VERSIÓN FINAL) */
 .modern-filter-wrapper {
@@ -300,6 +323,7 @@ h3 {
     accent-color: #FF7043;
 }
 
+
 /** LOGO (VERSIÓN OPTIMIZADA) */
 .logo-container {
     width: 420px;
@@ -322,10 +346,12 @@ h3 {
     display: block;
 }
 
+
 /** ESPACIADO ADICIONAL */
 .w3-margin-bottom {
     margin-bottom: 20px !important;
 }
+
 
 /** VERSIÓN MÓVIL */
 @media (max-width: 1000px) {

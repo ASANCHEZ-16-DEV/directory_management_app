@@ -128,84 +128,142 @@ h3 {
 }
 
 
-/**  TABLA DE ADMINISTRADOR CON MEJORAS RESPONSIVE */
+
+
+/**  TABLA DE ADMINISTRADOR */ 
 .admin-table-wrapper {
-    width: 95%;
+    width: 98%;
     margin: 20px auto;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     background-color: white;
+    padding: 0 5px;
 }
 
 .admin-table-title {
     background-color: #D84315;
     color: white;
     text-align: center;
-    padding: 20px;
-    font-size: 24px;
+    padding: 16px;
+    font-size: 20px;
     font-weight: bold;
     font-family: 'Segoe UI', sans-serif;
     border-bottom: 2px solid #BF360C;
 }
 
 .admin-table {
-    width: 100%;
+    width: 98%;
     border-collapse: collapse;
     font-family: 'Segoe UI', sans-serif;
+    table-layout: fixed;
 }
 
 .admin-table thead {
     background-color: #FFEBEE;
-    color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-.admin-table th,
-.admin-table td {
-    padding: 12px 10px;
+.admin-table th {
+    padding: 12px 6px;
     text-align: center;
-    vertical-align: middle;
-    border-bottom: 1px solid #ccc;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #D84315;
     white-space: nowrap;
 }
 
-.admin-table td:nth-child(1),
-.admin-table th:nth-child(1) {
-    width: 20%;
-    min-width: 150px;
+.admin-table td {
+    padding: 10px 6px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+    line-height: 1.4;
 }
 
-.admin-table td:nth-child(3),
-.admin-table th:nth-child(3) {
-    width: 20%;
-    min-width: 150px;
+/* DISTRIBUCIÓN PERFECTA DE COLUMNAS */
+.admin-table th:nth-child(1),
+.admin-table td:nth-child(1) { /* Nombre */
+    width: 23%;
+    text-align: left;
+    padding-left: 10px;
 }
 
+.admin-table th:nth-child(2),
+.admin-table td:nth-child(2) { /* Área */
+    width: 20%;
+}
+
+.admin-table th:nth-child(3),
+.admin-table td:nth-child(3) { /* Email */
+    width: 26%;
+    text-align: center;
+    padding-left: 10px;
+}
+
+.admin-table th:nth-child(4),
+.admin-table td:nth-child(4) { /* Teléfono Móvil */
+    width: 10%;
+}
+
+.admin-table th:nth-child(5),
+.admin-table td:nth-child(5) { /* Teléfono Fijo */
+    width: 10%;
+}
+
+.admin-table th:nth-child(6),
+.admin-table td:nth-child(6) { /* Ext */
+    width: 6%;
+}
+
+.admin-table th:nth-child(7),
+.admin-table td:nth-child(7) { /* Acciones */
+    width: 13%;
+    padding-right: 8px;
+}
+
+/* ESTILOS PARA FILAS */
 .admin-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #fafafa;
 }
 
 .admin-table tbody tr:hover {
-    background-color: #FFCCBC;
-    transition: background-color 0.3s ease;
+    background-color: #FFF3E0;
 }
 
-/* Botones de acción */
+/* CONTENEDOR DE BOTONES COMPACTO */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* BOTONES DE ACCIÓN COMPACTOS */
 .action-btn {
-    padding: 8px 10px;
+    padding: 6px 8px;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     border: none;
-    outline: none;
-    font-family: 'Segoe UI', sans-serif;
-    margin: 2px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    white-space: nowrap;
+    min-width: 60px;
+}
+
+.edit-btn {
+    text-decoration: none;
+    background-color: #2196F3;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #1976D2;
 }
 
 .delete-btn {
@@ -217,60 +275,53 @@ h3 {
     background-color: #D32F2F;
 }
 
-.edit-btn {
-    background-color: #2196F3;
-    color: white;
-}
-
-.edit-btn:hover {
-    background-color: #1976D2;
-}
-
 .add-btn {
     background-color: #4CAF50;
     color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    margin: 20px auto;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 18px auto;
     display: block;
     width: fit-content;
+    transition: all 0.2s ease;
 }
 
 .add-btn:hover {
     background-color: #388E3C;
 }
 
-/* Barra de administración */
+/* BARRA DE ADMINISTRACIÓN */
 .admin-bar {
     background-color: #D84315;
-    padding: 15px;
+    padding: 12px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .admin-title {
     color: white;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     margin: 0;
 }
 
 .admin-controls {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
-/* Mensajes de feedback */
+/* MENSAJES DE FEEDBACK */
 .alert {
-    padding: 15px;
-    margin: 20px auto;
+    padding: 12px;
+    margin: 18px auto;
     border-radius: 4px;
-    width: 80%;
+    width: 85%;
     text-align: center;
     font-weight: bold;
 }
@@ -290,28 +341,28 @@ h3 {
 /** FORMULARIOS DE CREACIÓN */
 .admin-form-container {
     width: 60%;
-    margin: 40px auto;
+    margin: 35px auto;
     background-color: white;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .admin-form-title {
     color: #D84315;
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 24px;
+    margin-bottom: 25px;
+    font-size: 22px;
 }
 
 .admin-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 18px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .form-group.full-width {
@@ -320,17 +371,17 @@ h3 {
 
 .form-label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-weight: bold;
     color: #555;
 }
 
 .form-input {
     width: 100%;
-    padding: 10px;
+    padding: 9px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .form-input:focus {
@@ -342,18 +393,25 @@ h3 {
     grid-column: span 2;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+    gap: 15px;
+    margin-top: 18px;
 }
 
 /* RESPONSIVE DESIGN MEJORADO */
 @media (max-width: 1200px) {
     .admin-table-wrapper {
-        width: 98%;
+        width: 100%;
     }
     
-    .search-form {
-        max-width: 90%;
+    .admin-table th,
+    .admin-table td {
+        padding: 9px 5px;
+    }
+    
+    .action-btn {
+        padding: 5px 7px;
+        font-size: 12px;
+        min-width: 55px;
     }
 }
 
@@ -363,16 +421,38 @@ h3 {
         overflow-x: auto;
     }
     
-    .admin-form-container {
-        width: 80%;
+    .admin-table th:nth-child(6),
+    .admin-table td:nth-child(6) {
+        display: none;
     }
     
-    .search-container {
-        width: 90%;
+    .action-buttons {
+        gap: 5px;
+    }
+    
+    .admin-form-container {
+        width: 75%;
     }
 }
 
 @media (max-width: 768px) {
+    .admin-table-title {
+        padding: 14px;
+        font-size: 20px;
+    }
+    
+    .admin-table th:nth-child(4),
+    .admin-table td:nth-child(4),
+    .admin-table th:nth-child(5),
+    .admin-table td:nth-child(5) {
+        width: 12%;
+    }
+    
+    .action-btn {
+        min-width: 50px;
+        padding: 5px;
+    }
+    
     .admin-form {
         grid-template-columns: 1fr;
     }
@@ -383,85 +463,62 @@ h3 {
     }
     
     .admin-form-container {
-        width: 90%;
+        width: 85%;
         padding: 20px;
-    }
-    
-    .admin-table th, 
-    .admin-table td {
-        padding: 10px 8px;
-        font-size: 14px;
-    }
-    
-    .action-btn {
-        padding: 6px 8px;
-        font-size: 13px;
     }
 }
 
 @media (max-width: 576px) {
-    .admin-bar {
+    .admin-table-wrapper {
+        padding: 0;
+    }
+    
+    .admin-table th, 
+    .admin-table td {
+        padding: 8px 4px;
+        font-size: 13px;
+    }
+    
+    .action-buttons {
         flex-direction: column;
+        gap: 4px;
+    }
+    
+    .action-btn {
+        width: 100%;
+        padding: 4px;
+    }
+    
+    .admin-bar {
         padding: 10px;
     }
     
     .admin-title {
         font-size: 20px;
-        text-align: center;
-    }
-    
-    .admin-controls {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .search-form {
-        flex-direction: column;
-    }
-    
-    .search-input {
-        border-radius: 25px;
-        margin-bottom: 10px;
-    }
-    
-    .search-btn {
-        border-radius: 25px;
-    }
-    
-    .clear-btn {
-        margin-left: 0;
-        justify-content: center;
     }
     
     .form-actions {
         flex-direction: column;
-        gap: 10px;
-    }
-    
-    .add-btn, .action-btn {
-        width: 100%;
-        justify-content: center;
+        gap: 8px;
     }
 }
 
-/* Para pantallas muy pequeñas (menos de 400px) */
 @media (max-width: 400px) {
     .admin-table th, 
     .admin-table td {
-        padding: 8px 5px;
-        font-size: 13px;
+        padding: 7px 3px;
     }
     
     .action-btn {
-        padding: 5px;
-        font-size: 12px;
+        font-size: 11px;
     }
     
     .admin-table-title {
-        padding: 15px 10px;
-        font-size: 20px;
+        padding: 12px 8px;
+        font-size: 18px;
     }
 }
+
 
 
 /* ?  CONTENIDO PARA EL FOOTER */

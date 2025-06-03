@@ -1,8 +1,6 @@
 <?php
 require_once('includes/conexion.php');
 
-// ! ERROR: La tabla de normal no muestra Extension pero cuando busco un nombre si la muestre y se muestra
-// !        más ajustada
 // Inicializar parámetros
 $nombre = isset($_POST['nombre']) ? trim($_POST['nombre']) : '';
 $dep = isset($_POST['dep']) ? $_POST['dep'] : '';
@@ -44,7 +42,14 @@ $allowed_orders = ['empleados.nombre_apellidos', 'empleados.extension', 'area.no
 if (!in_array($ord, $allowed_orders)) {
     $ord = 'empleados.nombre_apellidos';
 }
-$sql .= " ORDER BY $ord";
+
+if ($ord === 'empleados.extension') {
+    // Primero pone las extensiones no vacías, luego ordena normalmente
+    $sql .= " ORDER BY empleados.extension IS NULL OR empleados.extension = '', empleados.extension";
+} else {
+    $sql .= " ORDER BY $ord";
+}
+
 
 /**
  * echo "<pre>";
@@ -199,7 +204,7 @@ try {
         <tbody>
             <?php
                 if ($hay_resultados) {
-                    while ($stmt->fetch()) {
+                    while ($stmt->fetch()) { 
                         echo "<tr>";
                         echo "<td>" . htmlspecialchars($nombre_apellidos) . "</td>";
                         echo "<td>" . htmlspecialchars($nombre_area) . "</td>";
