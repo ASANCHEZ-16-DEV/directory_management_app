@@ -60,18 +60,6 @@ manage-contacts-app/
 ├── footer.html
 └── directorio.sql
 
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
-
-
->>>>>>> f20cc25c21ee004fcb875162e92817951f696c8a
 ## 🔒 Credenciales de prueba (admin)
 
 * Usuario: admin
@@ -101,7 +89,6 @@ manage-contacts-app/
 | ------------ | ---------------------------- |
 | auth.php     | Gestión de sesiones y roles |
 | conexion.php | Conexión a MariaDB          |
-
 
 ### Entorno de desarrollo
 
