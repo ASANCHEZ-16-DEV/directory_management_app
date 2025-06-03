@@ -36,10 +36,9 @@ cd manage_contacts_app
 1. Configurar la base de datos:
 
    mysql -u root -p < directorio.sql
-3. Configurar las credenciales en:
+2. Configurar las credenciales en:
 
 /includes/conexion.php
-
 
 ## 🛠️ Estructura del proyecto
 
@@ -61,12 +60,10 @@ manage-contacts-app/
 ├── footer.html
 └── directorio.sql
 
-
 ## 🔒 Credenciales de prueba (admin)
 
 * Usuario: admin
 * Contraseña: password (cambiar en producción)
-
 
 ## 📄 Documentación técnica
 
@@ -92,3 +89,11 @@ manage-contacts-app/
 | ------------ | ---------------------------- |
 | auth.php     | Gestión de sesiones y roles |
 | conexion.php | Conexión a MariaDB          |
+
+
+### Entorno de desarrollo
+
+| Tecnologia | Versión                      |
+| ---------- | ----------------------------- |
+| PHP        | PHP 8.2.12 Development Server |
+| MariaDB    | MariaDB 10.4.32               |
