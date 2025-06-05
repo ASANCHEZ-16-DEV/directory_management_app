@@ -234,7 +234,7 @@ h3 {
     margin: 40px auto;
     max-width: 1300px;
     padding: 0 40px;
-    gap: 60px;
+    gap: 190px;
     width: 100%;
 }
 
@@ -338,8 +338,8 @@ h3 {
     flex-shrink: 0;
 }
 
-.logo-ateneo {
-    width: 100%;
+.logo-main {
+    width: 80%;
     height: auto;
     max-width: 100%;
     object-fit: contain;
@@ -409,7 +409,7 @@ h3 {
     font-weight: bold;
   }
   
-  .footer-ateneo hr {
+  .footer-part hr {
     border: none;
     height: 1px;
     background-color: #ccc;

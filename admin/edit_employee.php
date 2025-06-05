@@ -9,14 +9,14 @@ $error = '';
 $success = '';
 $empleado = null;
 
-// Obtener áreas para el select
+// Get areas
 $sql_areas = "SELECT Id, nombre_area FROM area ORDER BY nombre_area ASC";
 $result_areas = $conn->query($sql_areas);
 if ($result_areas) {
     $areas = $result_areas->fetch_all(MYSQLI_ASSOC);
 }
 
-// Obtener datos del empleado
+// Get employee data
 if ($id > 0) {
     $sql_empleado = "SELECT * FROM empleados WHERE Id = ?";
     $stmt = $conn->prepare($sql_empleado);
@@ -39,9 +39,9 @@ if ($id > 0) {
     exit();
 }
 
-// Procesar el formulario
+// Process form
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Validar y sanitizar datos
+    // Validate data
     $empleado['nombre_apellidos'] = trim($_POST['nombre_apellidos'] ?? '');
     $empleado['email'] = trim($_POST['email'] ?? '');
     $empleado['telefono_movil'] = trim($_POST['telefono_movil'] ?? '');
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $empleado['extension'] = trim($_POST['extension'] ?? '');
     $empleado['idArea'] = $_POST['idArea'] ?? null;
     
-    // Validaciones
+    // More validations
     if (empty($empleado['nombre_apellidos'])) {
         $error = 'El nombre es obligatorio';
     } elseif (empty($empleado['email'])) {
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'El email no es válido';
     } else {
         try {
-            // Actualizar en la base de datos
+            // Update database
             $stmt = $conn->prepare("UPDATE empleados SET 
                 nombre_apellidos = ?,
                 email = ?,
@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-<!-- Barra superior de administración -->
+<!-- Top administrator feature -->
 <div class="admin-bar">
     <div class="admin-title">Editar Empleado</div>
     <div class="admin-controls">
@@ -119,14 +119,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<!-- Mostrar mensajes de error -->
+<!-- Show error messages -->
 <?php if ($error): ?>
     <div class="alert alert-error">
         <?= htmlspecialchars($error) ?>
     </div>
 <?php endif; ?>
 
-<!-- Formulario -->
+<!-- Form -->
 <div class="admin-form-container">
     <h2 class="admin-form-title">
         <i class="fa fa-user-edit"></i> Editar Empleado: <?= htmlspecialchars($empleado['nombre_apellidos']) ?>

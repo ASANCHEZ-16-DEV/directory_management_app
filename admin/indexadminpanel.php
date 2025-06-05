@@ -3,7 +3,7 @@ require_once(__DIR__ . '/../includes/auth.php');
 requireAdmin();
 require_once(__DIR__ . '/../includes/conexion.php');
 
-// Procesar eliminación si se ha enviado el formulario
+// Process delete if form is submited
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
     $id = (int)$_POST['delete_id'];
     
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
         
         $stmt->close();
         
-        // Redirigir para evitar reenvío del formulario
+        // Redirect to avoid submit form again
         header("Location: indexadminpanel.php");
         exit();
     } catch (Exception $e) {
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
     }
 }
 
-// Procesar búsqueda
+// Process search
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 $sql = "SELECT e.Id, e.nombre_apellidos, e.extension, 
                e.telefono_fijo, e.telefono_movil, 
@@ -35,7 +35,7 @@ $sql = "SELECT e.Id, e.nombre_apellidos, e.extension,
         FROM empleados e
         LEFT JOIN area a ON e.idArea = a.Id";
 
-// Añadir condición de búsqueda si existe
+// Add search condition if exists
 if (!empty($search)) {
     $sql .= " WHERE e.nombre_apellidos LIKE ?";
     $search_term = "%$search%";
@@ -43,7 +43,7 @@ if (!empty($search)) {
 
 $sql .= " ORDER BY e.nombre_apellidos ASC";
 
-// Preparar y ejecutar la consulta
+// Prepare query
 $stmt = $conn->prepare($sql);
 if (!empty($search)) {
     $stmt->bind_param("s", $search_term);
@@ -67,7 +67,7 @@ $stmt->close();
 </head>
 <body>
 
-<!-- Barra superior de administración -->
+<!-- Top-bar feature -->
 <div class="admin-bar">
     <div class="admin-title">Panel de Administración</div>
     <div class="admin-controls">
@@ -77,7 +77,7 @@ $stmt->close();
     </div>
 </div>
 
-<!-- Mostrar mensajes de éxito/error -->
+<!-- Show successfull/error messages -->
 <?php if (isset($_SESSION['success_message'])): ?>
     <div class="alert alert-success">
         <?= $_SESSION['success_message'] ?>
@@ -92,7 +92,7 @@ $stmt->close();
     </div>
 <?php endif; ?>
 
-<!-- Barra de búsqueda -->
+<!--Search bar -->
 <div class="search-container">
     <form method="GET" action="indexadminpanel.php" class="w3-container" style="width:100%; display:flex;">
         <input type="text" name="search" class="search-input" 
@@ -110,13 +110,13 @@ $stmt->close();
     </form>
 </div>
 
-<!-- Contenedor de la tabla -->
+<!-- Table container -->
 <div class="admin-table-wrapper">
     <div class="admin-table-title">
         <i class="fa fa-users"></i> Gestión de Empleados
     </div>
     
-    <!-- Botón para añadir nuevo empleado -->
+    <!-- Add new employee button -->
     <a href="add_employee.php" class="add-btn">
         <i class="fa fa-plus"></i> Añadir Nuevo Empleado
     </a>

@@ -91,7 +91,7 @@ try {
 <html>
 <head>
     <!-- // ? Propiedades de página -->
-    <title>Directorio del Ateneo</title>
+    <title>Directorio</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="CSS/w3.css"> 
     <link rel="stylesheet" href="CSS/font-awesome/css/font-awesome.min.css">
@@ -101,7 +101,7 @@ try {
 
 <!-- // ? Barra superior con botón de administración -->
 <div class="w3-bar w3-orange">
-    <a href="index.php" class="w3-bar-item w3-button">Directorio del Ateneo</a>
+    <a href="index.php" class="w3-bar-item w3-button">Directorio</a>
     <a href="admin/login.php" class="w3-bar-item w3-button w3-right">
         <i class="fa fa-lock"></i> Acceso Administración
     </a>
@@ -180,7 +180,7 @@ try {
 
     <!-- Logo a la derecha -->
     <div>
-        <img src="imagenes/Ateneologo.png" alt="Logo del Ateneo" class="logo-ateneo">
+        <img src="imagenes/mainlogo.png" alt="Logo de la app" class="logo-main">
     </div>
 </div>
 

@@ -15,16 +15,16 @@ $empleado = [
     'idArea' => ''
 ];
 
-// Obtener áreas para el select
+// Get areas
 $sql_areas = "SELECT Id, nombre_area FROM area ORDER BY nombre_area ASC";
 $result_areas = $conn->query($sql_areas);
 if ($result_areas) {
     $areas = $result_areas->fetch_all(MYSQLI_ASSOC);
 }
 
-// Procesar el formulario
+// Process form
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Validar y sanitizar datos
+    // Validate data
     $empleado['nombre_apellidos'] = trim($_POST['nombre_apellidos'] ?? '');
     $empleado['email'] = trim($_POST['email'] ?? '');
     $empleado['telefono_movil'] = trim($_POST['telefono_movil'] ?? '');
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $empleado['extension'] = trim($_POST['extension'] ?? '');
     $empleado['idArea'] = $_POST['idArea'] ?? null;
     
-    // Validaciones
+    // More validations
     if (empty($empleado['nombre_apellidos'])) {
         $error = 'El nombre es obligatorio';
     } elseif (empty($empleado['email'])) {
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'El email no es válido';
     } else {
         try {
-            // Insertar en la base de datos
+            // Insert on database
             $stmt = $conn->prepare("INSERT INTO empleados 
                 (nombre_apellidos, email, telefono_movil, telefono_fijo, extension, idArea) 
                 VALUES (?, ?, ?, ?, ?, ?)");
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-<!-- Barra superior de administración -->
+<!-- Top administrator feature -->
 <div class="admin-bar">
     <div class="admin-title">Añadir Nuevo Empleado</div>
     <div class="admin-controls">
@@ -96,14 +96,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 
-<!-- Mostrar mensajes de error -->
+<!-- Show error messages -->
 <?php if ($error): ?>
     <div class="alert alert-error">
         <?= htmlspecialchars($error) ?>
     </div>
 <?php endif; ?>
 
-<!-- Formulario -->
+<!-- Form -->
 <div class="admin-form-container">
     <h2 class="admin-form-title">
         <i class="fa fa-user-plus"></i> Datos del Empleado
