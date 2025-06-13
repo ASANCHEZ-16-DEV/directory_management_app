@@ -12,7 +12,7 @@ Sistema web para la gestión del personal con diferentes niveles de acceso.
 
 ### 👨‍💻 Para usuarios
 
-- Visualización del personal del ateneo
+- Visualización del personal
 - Sistema de filtrado avanzado
 - Interfaz intuitiva y responsiva
 
@@ -29,8 +29,8 @@ Sistema web para la gestión del personal con diferentes niveles de acceso.
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/ASANCHEZ-16-DEV/manage_contacts_app.git
-cd manage_contacts_app
+git clone https://github.com/ASANCHEZ-16-DEV/directory_management_app.git
+cd directory_management_app
 ```
 
 1. Configurar la base de datos:
